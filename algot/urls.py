@@ -19,5 +19,5 @@ from django.conf.urls import include, url
 
 urlpatterns = [
     path('algot/admin/', admin.site.urls),
-    url(r'^algot/upstox/', include('upstox.urls')),
+    url(r'^algot/data/', include('upstox.urls')),
 ]
