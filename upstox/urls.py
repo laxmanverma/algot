@@ -5,5 +5,6 @@ from . import views
 
 urlpatterns = [
     url(r'^auth/$', views.authorize),
-    url(r'^historical/$', views.historical_data)
+    url(r'^historical/$', views.historical_data),
+    url(r'^intraday/$', views.intraday_data)
 ]

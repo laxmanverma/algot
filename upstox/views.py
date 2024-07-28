@@ -29,3 +29,16 @@ def historical_data(request):
         return JsonResponse(candle_data, status=200)
     except Exception as e:
         return JsonResponse({"err": str(e)})
+
+
+@require_http_methods(["GET"])
+@csrf_exempt
+def intraday_data(request):
+    try:
+        symbol = request.GET["symbol"]
+        interval = request.GET["interval"]
+        from .service import fetch_intraday_candle_data
+        candle_data = fetch_intraday_candle_data(symbol, interval)
+        return JsonResponse(candle_data, status=200)
+    except Exception as e:
+        return JsonResponse({"err": str(e)})
